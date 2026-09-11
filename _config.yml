@@ -1,0 +1,9 @@
+title: sydocs
+theme: minima
+
+# Layout
+show_excerpts: false
+
+collections:
+  projects:
+    output: true
