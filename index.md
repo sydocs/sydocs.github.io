@@ -22,11 +22,11 @@ title: Home
   ">
 
   <h1 style="font-size: 2rem; font-weight: bold; color: #000000; margin-bottom: 0.5rem;">
-    Documenting my learnings~ 
+  sydocs
   </h1>
 
   <p style="font-size: 0.9rem; color: #000000; margin: 0;">
-    codes & docs
+  Documenting my learnings~ 
   </p>
 
 </div>
