@@ -10,7 +10,15 @@ permalink: /post/
 [Uncategorised](/posts/uncategorised/){: .filter-link }
 
 {% for post in site.posts %}
-<div style="
+  {% assign card_link = post.repo %}
+  {% if post.has_writeup %}
+    {% assign card_link = post.url | relative_url %}
+  {% endif %}
+
+<a href="{{ card_link }}" {% unless post.has_writeup %}target="_blank"{% endunless %} style="
+  display: block;
+  text-decoration: none;
+  color: inherit;
   border: 1px solid #e0e0e0;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.05);
@@ -18,9 +26,9 @@ permalink: /post/
   margin-bottom: 1.5rem;
 ">
 
-  <a href="{{ post.url | relative_url }}" style="font-size: 1.2rem; font-weight: bold; color: #333; text-decoration: none;">
+  <span style="font-size: 1.2rem; font-weight: bold; color: #333;">
     {{ post.title }}
-  </a><br>
+  </span><br>
 
   {% if post.category %}
     <span style="font-size: 0.8rem; color: #666;">Category: {{ post.category }}</span><br>
@@ -29,12 +37,14 @@ permalink: /post/
   {% if post.date %}
   <span style="color: #999; font-size: 0.9rem;">
     {{ post.date | date: "%B %-d, %Y" }}
-  </span><br><br>
+  </span><br>
   {% endif %}
 
-  <!--{% if post.excerpt %}
-    {{ post.excerpt }}
-  {% endif %}-->
+  {% if post.has_writeup and post.repo %}
+    <div style="margin-top: 14px;">
+      <a href="{{ post.repo }}" target="_blank" onclick="event.stopPropagation()" style="color: #e8a33d; font-weight: 500; font-size: 13px; text-decoration: none;">github</a>
+    </div>
+  {% endif %}
 
-</div>
+</a>
 {% endfor %}
