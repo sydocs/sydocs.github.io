@@ -37,5 +37,3 @@ This is my personal website, built with jekyll and hosted on github pages. The s
 
 #### Learning outcome
 - Created a website using online resources, tools, and technologies.
-
-[View Github](https://github.com/sydocs/sydocs.github.io)
