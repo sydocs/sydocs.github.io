@@ -15,10 +15,8 @@ permalink: /post/
     {% assign card_link = post.url | relative_url %}
   {% endif %}
 
-<a href="{{ card_link }}" {% unless post.has_writeup %}target="_blank"{% endunless %} style="
-  display: block;
-  text-decoration: none;
-  color: inherit;
+<div onclick="window.location='{{ card_link }}'" style="
+  cursor: pointer;
   border: 1px solid #e0e0e0;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.05);
@@ -26,25 +24,25 @@ permalink: /post/
   margin-bottom: 1.5rem;
 ">
 
-  <span style="font-size: 1.2rem; font-weight: bold; color: #333;">
+<span style="font-size: 1.2rem; font-weight: bold; color: #333;">
     {{ post.title }}
-  </span><br>
+</span><br>
 
   {% if post.category %}
-    <span style="font-size: 0.8rem; color: #666;">Category: {{ post.category }}</span><br>
+<span style="font-size: 0.8rem; color: #666;">Category: {{ post.category }}</span><br>
   {% endif %}
 
   {% if post.date %}
-  <span style="color: #999; font-size: 0.9rem;">
+<span style="color: #999; font-size: 0.9rem;">
     {{ post.date | date: "%B %-d, %Y" }}
-  </span><br>
+</span><br>
   {% endif %}
 
   {% if post.has_writeup and post.repo %}
-    <div style="margin-top: 14px;">
-      <a href="{{ post.repo }}" target="_blank" onclick="event.stopPropagation()" style="color: #e8a33d; font-weight: 500; font-size: 13px; text-decoration: none;">github</a>
-    </div>
+<div style="margin-top: 14px;">
+<a href="{{ post.repo }}" target="_blank" onclick="event.stopPropagation()" style="color: #e8a33d; font-weight: 500; font-size: 13px; text-decoration: none;">github</a>
+</div>
   {% endif %}
 
-</a>
+</div>
 {% endfor %}
