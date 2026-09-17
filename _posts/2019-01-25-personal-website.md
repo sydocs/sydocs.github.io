@@ -6,6 +6,7 @@ description:
 repo:
 category: Applications
 permalink: /posts/2019-01-25-personal-website/
+has_writeup: true
 ---
 
 This is my personal website, built with jekyll and hosted on github pages. The site uses the minima template and includes filter sections for home and posts.

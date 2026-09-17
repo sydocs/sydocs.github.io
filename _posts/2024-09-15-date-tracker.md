@@ -6,6 +6,7 @@ description: Automated date tracker in excel
 repo:
 category: Automation
 permalink: /posts/2024-09-15-date-tracker/
+has_writeup: true
 ---
 Below are the steps to automate the daily data tracking:
 - Create the list with important columns
