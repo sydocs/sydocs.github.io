@@ -31,29 +31,44 @@ title: Home
 
 </div>
 
-<div style="max-width: 900px; margin: 2rem auto 0;">
+<div style="max-width: 900px; margin: 2rem auto 0; display: flex; gap: 2rem; align-items: flex-start;">
 
-<div style="margin-bottom: 2rem;">
-<a href="#automations" class="filter-link">Automations</a>
-<a href="#applications" class="filter-link">Applications</a>
-<a href="#data" class="filter-link">Data</a>
-<a href="#uncategorised" class="filter-link">Uncategorised</a>
-</div>
+<nav style="
+  flex: 0 0 140px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: sticky;
+  top: 2rem;
+">
+<a href="https://sydocs.github.io/#automations" class="filter-link">Automations</a>
+<a href="https://sydocs.github.io/#applications" class="filter-link">Applications</a>
+<a href="https://sydocs.github.io/#data" class="filter-link">Data</a>
+<a href="https://sydocs.github.io/#uncategorised" class="filter-link">Uncategorised</a>
+</nav>
 
-<h2 id="automations" style="font-size: 1.4rem; margin-bottom: 1rem;">Automations</h2>
+<div style="flex: 1; min-width: 0;">
+
+<div id="automations">
 {% assign automation_posts = site.posts | where: "category", "Automations" %}
 {% include post-cards.html posts=automation_posts %}
+</div>
 
-<h2 id="applications" style="font-size: 1.4rem; margin: 2rem 0 1rem;">Applications</h2>
+<div id="applications" style="margin-top: 2rem;">
 {% assign application_posts = site.posts | where: "category", "Applications" %}
 {% include post-cards.html posts=application_posts %}
+</div>
 
-<h2 id="data" style="font-size: 1.4rem; margin: 2rem 0 1rem;">Data</h2>
+<div id="data" style="margin-top: 2rem;">
 {% assign data_posts = site.posts | where: "category", "Data" %}
 {% include post-cards.html posts=data_posts %}
+</div>
 
-<h2 id="uncategorised" style="font-size: 1.4rem; margin: 2rem 0 1rem;">Uncategorised</h2>
+<div id="uncategorised" style="margin-top: 2rem;">
 {% assign uncategorised_posts = site.posts | where: "category", "Uncategorised" %}
 {% include post-cards.html posts=uncategorised_posts %}
+</div>
+
+</div>
 
 </div>
