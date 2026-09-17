@@ -1,0 +1,48 @@
+<div style="
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding-bottom: 12px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+">
+{% for post in include.posts %}
+  {% assign card_link = post.repo %}
+  {% if post.has_writeup %}
+    {% assign card_link = post.url | relative_url %}
+  {% endif %}
+
+<div onclick="window.location='{{ card_link }}'" style="
+  cursor: pointer;
+  flex: 0 0 220px;
+  scroll-snap-align: start;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  padding: 1rem 1.25rem;
+  background: #fff;
+">
+
+<span style="font-size: 1.1rem; font-weight: bold; color: #333; display: block; margin-bottom: 4px;">
+    {{ post.title }}
+</span>
+
+  {% if post.category %}
+<span style="font-size: 0.8rem; color: #666; display: block; margin-bottom: 4px;">Category: {{ post.category }}</span>
+  {% endif %}
+
+  {% if post.date %}
+<span style="color: #999; font-size: 0.85rem; display: block;">
+    {{ post.date | date: "%B %-d, %Y" }}
+</span>
+  {% endif %}
+
+  {% if post.has_writeup and post.repo %}
+<div style="margin-top: 12px;">
+<a href="{{ post.repo }}" target="_blank" onclick="event.stopPropagation()" style="text-decoration: none; color: inherit;">github</a>
+</div>
+  {% endif %}
+
+</div>
+{% endfor %}
+</div>
