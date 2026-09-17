@@ -4,7 +4,7 @@ title: Home
 ---
 
 <div style="
-  max-width: 600px;
+  max-width: 900px;
   margin: 3rem auto;
   padding: 2rem;
   background-color: #fff;
@@ -13,7 +13,7 @@ title: Home
   text-align: center;
 ">
 
-  <img src="/assets/images/profile.jpg" alt="Profile picture" style="
+<img src="/assets/images/profile.jpg" alt="Profile picture" style="
     width: 120px;
     height: 120px;
     object-fit: cover;
@@ -21,13 +21,13 @@ title: Home
     margin-bottom: 1rem;
   ">
 
-  <h1 style="font-size: 2rem; font-weight: bold; color: #000000; margin-bottom: 0.5rem;">
+<h1 style="font-size: 2rem; font-weight: bold; color: #000000; margin-bottom: 0.5rem;">
   sydocs
-  </h1>
+</h1>
 
-  <p style="font-size: 0.9rem; color: #000000; margin: 0;">
+<p style="font-size: 0.9rem; color: #000000; margin: 0;">
   Documenting my learnings~ 
-  </p>
+</p>
 
 </div>
 
@@ -35,24 +35,24 @@ title: Home
 .category-section { display: none; }
 .category-section.active { display: block; }
 .category-section > div {
-  display: grid !important;
-  grid-template-columns: repeat(5, 1fr) !important;
-  gap: 16px !important;
-  overflow-x: visible !important;
+display: grid !important;
+grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)) !important;
+gap: 16px !important;
+overflow-x: visible !important;
 }
 .filter-link.active-filter {
-  font-weight: 700;
-  text-decoration: underline;
+font-weight: 700;
+text-decoration: underline;
 }
 </style>
 
 <div style="max-width: 1200px; margin: 2rem auto 0;">
 
 <nav style="display: flex; gap: 24px; margin-bottom: 2rem;">
-<a href="https://sydocs.github.io/#automations" class="filter-link" onclick="return showCategory('automations', this)">Automations</a>
-<a href="https://sydocs.github.io/#applications" class="filter-link" onclick="return showCategory('applications', this)">Applications</a>
-<a href="https://sydocs.github.io/#data" class="filter-link" onclick="return showCategory('data', this)">Data</a>
-<a href="https://sydocs.github.io/#uncategorised" class="filter-link" onclick="return showCategory('uncategorised', this)">Uncategorised</a>
+<a href="#automations" class="filter-link" onclick="return showCategory('automations', this)">Automations</a>
+<a href="#applications" class="filter-link" onclick="return showCategory('applications', this)">Applications</a>
+<a href="#data" class="filter-link" onclick="return showCategory('data', this)">Data</a>
+<a href="#uncategorised" class="filter-link" onclick="return showCategory('uncategorised', this)">Uncategorised</a>
 </nav>
 
 <div id="automations" class="category-section">
@@ -87,15 +87,15 @@ function showCategory(id, link) {
   document.querySelectorAll('.filter-link').forEach(function(a) {
     a.classList.remove('active-filter');
   });
-  if (link) { link.classList.add('active-filter'); }
+if (link) { link.classList.add('active-filter'); }
 
   history.replaceState(null, '', '#' + id);
-  return false;
+return false;
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-  var hash = window.location.hash.replace('#', '') || 'automations';
-  var link = document.querySelector('a[href$="#' + hash + '"]');
-  showCategory(hash, link);
+var hash = window.location.hash.replace('#', '') || 'automations';
+var link = document.querySelector('a[href$="#' + hash + '"]');
+showCategory(hash, link);
 });
 </script>
