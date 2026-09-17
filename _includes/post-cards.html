@@ -7,7 +7,8 @@
   -webkit-overflow-scrolling: touch;
 ">
 {% for post in include.posts %}
-  {% if post.title %}
+  {% assign clean_title = post.title | strip %}
+  {% if clean_title != "" %}
   {% assign card_link = post.url | relative_url %}
   {% if post.has_writeup %}
     {% assign card_link = post.url | relative_url %}
