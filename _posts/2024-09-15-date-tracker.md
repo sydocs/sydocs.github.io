@@ -4,7 +4,7 @@ title: Date Tracker
 date: 2024-09-15
 description: Automated date tracker in excel
 repo:
-category: Automation
+category: Automations
 permalink: /posts/2024-09-15-date-tracker/
 has_writeup: true
 ---
