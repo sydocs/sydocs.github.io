@@ -40,7 +40,7 @@ permalink: /post/
 
   {% if post.has_writeup and post.repo %}
 <div style="margin-top: 14px;">
-<a href="{{ post.repo }}" target="_blank" onclick="event.stopPropagation()" style="color: #e8a33d; font-weight: 500; font-size: 13px; text-decoration: none;">github</a>
+<a href="{{ post.repo }}" target="_blank" onclick="event.stopPropagation()" style="text-decoration: none; color: inherit;">github</a>
 </div>
   {% endif %}
 
