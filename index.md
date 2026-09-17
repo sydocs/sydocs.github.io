@@ -31,44 +31,71 @@ title: Home
 
 </div>
 
-<div style="max-width: 900px; margin: 2rem auto 0; display: flex; gap: 2rem; align-items: flex-start;">
+<style>
+.category-section { display: none; }
+.category-section.active { display: block; }
+.category-section > div {
+  display: grid !important;
+  grid-template-columns: repeat(5, 1fr) !important;
+  gap: 16px !important;
+  overflow-x: visible !important;
+}
+.filter-link.active-filter {
+  font-weight: 700;
+  text-decoration: underline;
+}
+</style>
 
-<nav style="
-  flex: 0 0 140px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  position: sticky;
-  top: 2rem;
-">
-<a href="https://sydocs.github.io/#automations" class="filter-link">Automations</a>
-<a href="https://sydocs.github.io/#applications" class="filter-link">Applications</a>
-<a href="https://sydocs.github.io/#data" class="filter-link">Data</a>
-<a href="https://sydocs.github.io/#uncategorised" class="filter-link">Uncategorised</a>
+<div style="max-width: 1200px; margin: 2rem auto 0;">
+
+<nav style="display: flex; gap: 24px; margin-bottom: 2rem;">
+<a href="https://sydocs.github.io/#automations" class="filter-link" onclick="return showCategory('automations', this)">Automations</a>
+<a href="https://sydocs.github.io/#applications" class="filter-link" onclick="return showCategory('applications', this)">Applications</a>
+<a href="https://sydocs.github.io/#data" class="filter-link" onclick="return showCategory('data', this)">Data</a>
+<a href="https://sydocs.github.io/#uncategorised" class="filter-link" onclick="return showCategory('uncategorised', this)">Uncategorised</a>
 </nav>
 
-<div style="flex: 1; min-width: 0;">
-
-<div id="automations">
+<div id="automations" class="category-section">
 {% assign automation_posts = site.posts | where: "category", "Automations" %}
 {% include post-cards.html posts=automation_posts %}
 </div>
 
-<div id="applications" style="margin-top: 2rem;">
+<div id="applications" class="category-section">
 {% assign application_posts = site.posts | where: "category", "Applications" %}
 {% include post-cards.html posts=application_posts %}
 </div>
 
-<div id="data" style="margin-top: 2rem;">
+<div id="data" class="category-section">
 {% assign data_posts = site.posts | where: "category", "Data" %}
 {% include post-cards.html posts=data_posts %}
 </div>
 
-<div id="uncategorised" style="margin-top: 2rem;">
+<div id="uncategorised" class="category-section">
 {% assign uncategorised_posts = site.posts | where: "category", "Uncategorised" %}
 {% include post-cards.html posts=uncategorised_posts %}
 </div>
 
 </div>
 
-</div>
+<script>
+function showCategory(id, link) {
+  document.querySelectorAll('.category-section').forEach(function(el) {
+    el.classList.remove('active');
+  });
+  document.getElementById(id).classList.add('active');
+
+  document.querySelectorAll('.filter-link').forEach(function(a) {
+    a.classList.remove('active-filter');
+  });
+  if (link) { link.classList.add('active-filter'); }
+
+  history.replaceState(null, '', '#' + id);
+  return false;
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  var hash = window.location.hash.replace('#', '') || 'automations';
+  var link = document.querySelector('a[href$="#' + hash + '"]');
+  showCategory(hash, link);
+});
+</script>
