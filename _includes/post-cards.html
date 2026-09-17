@@ -7,12 +7,17 @@
   -webkit-overflow-scrolling: touch;
 ">
 {% for post in include.posts %}
-  {% assign card_link = post.repo %}
+  {% if post.title %}
+  {% assign card_link = post.url | relative_url %}
   {% if post.has_writeup %}
     {% assign card_link = post.url | relative_url %}
+  {% elsif post.repo %}
+    {% assign card_link = post.repo %}
   {% endif %}
 
-<div onclick="window.location='{{ card_link }}'" style="
+<a href="{{ card_link }}" style="
+  text-decoration: none;
+  color: inherit;
   cursor: pointer;
   flex: 0 0 220px;
   scroll-snap-align: start;
@@ -21,6 +26,7 @@
   box-shadow: 0 2px 5px rgba(0,0,0,0.05);
   padding: 1rem 1.25rem;
   background: #fff;
+  display: block;
 ">
 
 <span style="font-size: 1.1rem; font-weight: bold; color: #333; display: block; margin-bottom: 4px;">
@@ -39,10 +45,11 @@
 
   {% if post.has_writeup and post.repo %}
 <div style="margin-top: 12px;">
-<a href="{{ post.repo }}" target="_blank" onclick="event.stopPropagation()" style="text-decoration: none; color: inherit;">github</a>
+<a href="{{ post.repo }}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" style="text-decoration: none; color: inherit; text-decoration: underline;">github</a>
 </div>
   {% endif %}
 
-</div>
+</a>
+  {% endif %}
 {% endfor %}
 </div>
