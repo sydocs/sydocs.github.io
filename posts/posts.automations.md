@@ -1,12 +1,12 @@
 ---
 layout: default
 title: Automation Posts
-permalink: /posts/automation/
+permalink: /posts/automations/
 ---
 
-# Category: Automation
+# Category: Automations
 
-{% assign filtered = site.posts | where: "category", "Automation" %}
+{% assign filtered = site.posts | where: "category", "Automations" %}
 
 {% for post in filtered %}
   {% assign card_link = post.repo %}
