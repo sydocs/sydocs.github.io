@@ -30,3 +30,14 @@ title: Home
   </p>
 
 </div>
+
+<div style="max-width: 700px; margin: 2rem auto 0;">
+
+[Automations](/posts/automations/){: .filter-link } 
+[Applications](/posts/applications/){: .filter-link }
+[Data](/posts/data/){: .filter-link } 
+[Uncategorised](/posts/uncategorised/){: .filter-link }
+
+{% include post-cards.html posts=site.posts %}
+
+</div>
