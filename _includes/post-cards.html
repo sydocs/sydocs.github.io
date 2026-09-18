@@ -18,12 +18,17 @@
 
 <div style="
   flex: 0 0 220px;
+  height: 160px;
   scroll-snap-align: start;
   border: 1px solid #e0e0e0;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.05);
   padding: 1rem 1.25rem;
   background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
 ">
 
 <a href="{{ card_link }}" style="
@@ -60,4 +65,3 @@
   {% endif %}
 {% endfor %}
 </div>
-
